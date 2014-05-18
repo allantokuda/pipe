@@ -1,0 +1,31 @@
+a drag-to spot allowing me to upload a CSV file (with headers) 
+  that takes me instantly to a webpage view of the data
+    in an Excel-like editable, sortable format
+
+    with a (randomly generated) URL that can be accessed from any browser
+
+    with a drag-to spot to add more data
+      that warns me if the headers are different,
+        with OK and Cancel buttons
+        and explains which headers will be added, and which will be left blank
+      and accepts multiple files at once
+
+    with drag-sortable column headers
+      such that the sort ordering persists across sessions
+
+    with a detail view section
+      on the side for wide displays
+      that replaces the index for narrow/mobile displays
+
+    with a link to a map view
+      enabled when exactly one lat/lon pair is detected via combination of headers and data matching patterns
+      enabled when
+
+  that accepts tab-delimited text files
+  that accepts Excel files
+  that accepts Numbers files
+  that accepts OpenOffice files
+
+
+
+
