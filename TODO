@@ -17,7 +17,7 @@ a drag-to spot allowing me to upload a CSV file (with headers)
       on the side for wide displays
       that replaces the index for narrow/mobile displays
 
-    with a link to a map view
+    with a link to a map view (Google? Bing? OpenLayers?)
       enabled when exactly one lat/lon pair is detected via combination of headers and data matching patterns
       enabled when
 
