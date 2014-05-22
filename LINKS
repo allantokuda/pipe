@@ -6,3 +6,10 @@ http://developers.arcgis.com/javascript/samples/exp_dragdrop/
 
 Load text file
 http://jsfiddle.net/alexsuch/6aG4x/
+
+event vs. event.originalEvent, dataTransfer
+http://stackoverflow.com/questions/10813494/javascript-html5-jquery-drag-and-drop-upload-uncaught-typeerror-cannot-read
+https://github.com/fisshy/Angular-drag-drop/issues/1
+
+Angular directive isolate scope = sign
+http://stackoverflow.com/questions/16303377/error-non-assignable-model-expression-undefined-directive-childone

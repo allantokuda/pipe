@@ -1,17 +1,26 @@
-'use strict';
+//'use strict';
 
 angular.module('metaApp').directive('fileDropZone', function() {
   return {
     restrict: 'A',
+    /*
     scope: {
-      file: '=',
-      fileName: '='
+      mediaTypes: '@',  // input to directive
+      droppedFileContent: '=' // output of directive
     },
+    */
     link: function(scope, element, attrs) {
-      var checkSize, isTypeValid, validMimeTypes;
+      var checkSize, isTypeValid, processDragOverOrEnter, validMimeTypes;
+      processDragOverOrEnter = function(event) {
+        if (event != null) {
+          event.preventDefault();
+        }
+        event.originalEvent.dataTransfer.effectAllowed = 'copy';
+        return false;
+      };
 
       //Use the value of the directive to specify a list of valid mime types
-      validMimeTypes = attrs.fileDropzone;
+      validTypes = attrs.mediaTypes;
 
       checkSize = function(size) {
         var _ref;
@@ -24,35 +33,44 @@ angular.module('metaApp').directive('fileDropZone', function() {
       };
 
       isTypeValid = function(type) {
-        if ((validMimeTypes === (void 0) || validMimeTypes === '') || validMimeTypes.indexOf(type) > -1) {
+        if ((validTypes === (void 0) || validTypes === '') || validTypes.indexOf(type) > -1) {
           return true;
         } else {
           alert("Invalid file type.  File must be one of following types " + validMimeTypes);
           return false;
         }
       };
-
+      element.bind('dragover', processDragOverOrEnter);
+      element.bind('dragenter', processDragOverOrEnter);
       return element.bind('drop', function(event) {
         var file, name, reader, size, type;
         if (event != null) {
           event.preventDefault();
         }
         reader = new FileReader();
+
         reader.onload = function(evt) {
           if (checkSize(size) && isTypeValid(type)) {
+            console.log('valid'); //DEBUG
+            console.log(scope);
             return scope.$apply(function() {
-              scope.file = evt.target.result;
-              if (angular.isString(scope.fileName)) {
-                return scope.fileName = name;
-              }
+              console.log("Result");
+              console.log(scope);
+              console.log(evt.target.result); //DEBUG
+              //scope.droppedFileContent = evt.target.result;
+              scope.droppedFileContent = reader.result;
+              console.log('applied'); //DEBUG
             });
           }
         };
-        file = event.dataTransfer.files[0];
+
+        window.ee = event; //DEBUG
+        window.rr = reader; //DEBUG
+        file = event.originalEvent.dataTransfer.files[0];
         name = file.name;
         type = file.type;
         size = file.size;
-        reader.readAsDataURL(file);
+        reader.readAsText(file);
         return false;
       });
     }
