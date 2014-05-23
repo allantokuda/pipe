@@ -49,6 +49,8 @@ angular.module('metaApp').directive('fileDropZone', function() {
           if (checkSize(size) && isTypeValid(type)) {
             return scope.$apply(function() {
               scope.droppedFileContent = reader.result;
+              //TODO redesign this
+              scope.myData = $.csv.toObjects(reader.result);
             });
           }
         };

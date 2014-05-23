@@ -9,6 +9,10 @@ app.controller('MyCtrl', function($scope) {
     {name: "Enos",    age: 34}
   ];
 
+  setData = function(newData) {
+    $scope.myData = $.csv.toObjects(newData);
+  }
+
   $scope.gridOptions = { 
     data: 'myData',
     enableRowSelection: true,
@@ -16,8 +20,9 @@ app.controller('MyCtrl', function($scope) {
     //enableRowReordering: true,
     //enableColumnReordering: true,
     columnDefs: [
-      {field:'name', displayName: 'Name', enableCellEdit: true},
-      {field:'age',  displayName: 'Age', enableCellSelection: false }
+      {field:'id',   displayName: 'ID' },
+      {field:'lat',  displayName: 'Latitude', enableCellEdit: true},
+      {field:'lon',  displayName: 'Longitude', enableCellEdit: true}
     ]
   };
 });
