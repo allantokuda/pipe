@@ -1,21 +1,17 @@
 //'use strict';
 
+// Input: expects attribute mediaTypes to be set, e.g. to "[text/csv]"
+// Output: sets scope.droppedFileContent to be the file contents
 angular.module('metaApp').directive('fileDropZone', function() {
   return {
     restrict: 'A',
-    /*
-    scope: {
-      mediaTypes: '@',  // input to directive
-      droppedFileContent: '=' // output of directive
-    },
-    */
     link: function(scope, element, attrs) {
       var checkSize, isTypeValid, processDragOverOrEnter, validMimeTypes;
       processDragOverOrEnter = function(event) {
         if (event != null) {
           event.preventDefault();
         }
-        event.originalEvent.dataTransfer.effectAllowed = 'copy';
+        event.dataTransfer.effectAllowed = 'copy';
         return false;
       };
 
@@ -51,22 +47,13 @@ angular.module('metaApp').directive('fileDropZone', function() {
 
         reader.onload = function(evt) {
           if (checkSize(size) && isTypeValid(type)) {
-            console.log('valid'); //DEBUG
-            console.log(scope);
             return scope.$apply(function() {
-              console.log("Result");
-              console.log(scope);
-              console.log(evt.target.result); //DEBUG
-              //scope.droppedFileContent = evt.target.result;
               scope.droppedFileContent = reader.result;
-              console.log('applied'); //DEBUG
             });
           }
         };
 
-        window.ee = event; //DEBUG
-        window.rr = reader; //DEBUG
-        file = event.originalEvent.dataTransfer.files[0];
+        file = event.dataTransfer.files[0];
         name = file.name;
         type = file.type;
         size = file.size;
