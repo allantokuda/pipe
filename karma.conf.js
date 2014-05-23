@@ -15,11 +15,11 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
-      'js/vendor/angular-1.2.16.js'
-      'js/vendor/jquery-2.1.1.js'
-      'js/vendor/jquery.csv-0.71.js'
-      'js/vendor/ng-grid-2.0.11.debug.js'
-      'js/vendor/angular-mocks-1.3.0.js'
+      'js/vendor/angular-1.2.16.js',
+      'js/vendor/jquery-2.1.1.js',
+      'js/vendor/jquery.csv-0.71.js',
+      'js/vendor/ng-grid-2.0.11.debug.js',
+      'js/vendor/angular-mocks-1.3.0.js',
       'js/main.js',
       'js/*.js',
       'test/**/*-test.js'
