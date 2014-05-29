@@ -1,4 +1,4 @@
-describe('extractCSV factory', function() {
+describe('CSV object extractor', function() {
   var extracted;
   beforeEach(function() {
     module("metaApp");
