@@ -22,6 +22,7 @@ module.exports = function(config) {
       'js/vendor/angular-mocks-1.3.0.js',
       'js/main.js',
       'js/*.js',
+      'js/**/*.js',
       'test/**/*-test.js'
     ],
 

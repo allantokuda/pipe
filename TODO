@@ -1,3 +1,18 @@
+csv object extractor service: takes a multiline CSV string and converts it into a list of objects (use jQuery.CSV)
+field list extractor service: takes a list of objects and gathers all unique field names
+field list comparator service: takes two field lists and provides an difference object containing three lists: "common", "only1", "only2"
+field remover service: accepts a list of objects and list of fields to remove, and removes those fields from all objects in the list
+appender service: takes a target data list, a new list, and appends them together.
+file drop zone directive: grab dropped file and save it into a specified scope variable
+ng-grid directive: free
+grid controller: initialize the grid, link it to the database controller. Receive events with new data, and call the appender service
+diff dialog controller: receive events about new additions and differences. Fire up a dialog that allows user input. Accept inputs and re-emit the command.
+message controller: receive emitted events and rebroadcast them as appropriate.
+
+
+FIND OUT what happens with ng-grid if fields are missing. Are null placeholders required?
+
+
 a drag-to spot allowing me to upload a CSV file (with headers) 
   that takes me instantly to a webpage view of the data
     in an Excel-like editable, sortable format
